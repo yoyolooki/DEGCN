@@ -1,11 +1,11 @@
 # DEGCN
 ## What is it?
 DEGCN,A dense graph convolutional network for multi-Omics data integration and kidney kancer subtype classification<br>
-![Image text](https://github.com/yoyolooki/DEGCN/data/Figs1.png)
+![Image text](https://github.com/yoyolooki/DEGCN/blob/main/data/Figs1.png)
 As shown in figure, inputs to the model are multi-omics expression matrices, including but not limited to genomics, transcriptomics, proteomics, etc. DEGCN exploits the GCN model to incorporate and extend two unsupervised multi-omics integration algorithms: Variational Autoencoder algorithm (VAE) based on expression matrix and similarity network fusion algorithm based on patient similarity network. Feature extraction is not necessary before AE and SNF. <br>
 
 ## Requirements 
-DEGCN is a Python scirpt tool, Python environment need:<br>
+DEGCN is a Python scirpt tools, Python environment need:<br>
 Python 3.6 or above <br>
 Pytorch 1.4.0 or above <br>
 snfpy 0.2.2 <br>
