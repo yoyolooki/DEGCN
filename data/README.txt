@@ -1,1 +1,1 @@
-Our data can be downloaded fromhttps://figshare.com/articles/thesis/DEGCN-data/28517558
+Our data can be downloaded from https://figshare.com/articles/thesis/DEGCN-data/28517558
