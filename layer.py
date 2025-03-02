@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2024/5/4 19:07
 # @Author  : Li Yu
-# @File    : Layer.py
+# @File    : layer.py
 import torch
 import math
 from torch import nn

@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2024/5/4 19:07
 # @Author  : Li Yu
-# @File    : DenseGCN_model.py
+# @File    : dense_gcn_model.py
 import torch
 import torch.nn as nn
 import numpy as np
 import pandas as pd
 import argparse
 from torch.utils.data import DataLoader
-from Dataloader import Omics_Data_VAE
-from VAE_model import VAE
+from dataloader import Omics_Data_VAE
+from vae_model import VAE
 import matplotlib.pyplot as plt
 import os
 
@@ -86,9 +86,6 @@ def work(epochs, num_hidden, mode, path1, path2, path3, device, lr, batch_size):
                                   shuffle=True,
                                   num_workers=0)  # num_workers多线程
 
-        # 第一个0表示从omics_dataset拿出第0个样本数据（注意这个样本是三个组学数据样本放一起的）omics_dataset[0]是一个tuple
-        # 第二个0表示取到第0个tuple中第0个组学的数据
-        # 第二个0表示取组学数据的第一个维度，即特征数量
         omics1_dim = omics_dataset[0][0].size(0)
         omics2_dim = omics_dataset[0][1].size(0)
         omics3_dim = omics_dataset[0][2].size(0)
@@ -130,14 +127,7 @@ def work(epochs, num_hidden, mode, path1, path2, path3, device, lr, batch_size):
             omics_1, omics_2, omics_3)
         latent_df = pd.DataFrame(latent_data.detach().cpu().numpy())
         latent_df.insert(0, 'Sample', sample_name)
-        # save the integrated data(dim=100)
         latent_df.to_csv('result/latent_data_gc.csv', header=True, index=False)
-
-        # latent_df_z = pd.DataFrame(latent_data_z.detach().cpu().numpy())
-        # latent_df_z.insert(0, 'Sample', sample_name)
-        # # save the integrated data(dim=100)
-        # latent_df_z.to_csv('result/latent_data_z.csv', header=True, index=False)
-
         print('Finish!')
 
 

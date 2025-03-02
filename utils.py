@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2024/5/4 19:07
 # @Author  : Li Yu
-# @File    : DenseGCN_model.py
+# @File    : dense_gcn_model.py
 import pandas as pd
 import numpy as np
 
@@ -38,18 +38,15 @@ def load_data(adj, fea, lab, threshold=0.5):
 
     # adjacency matrix after filtering
     exist = (adj_m != 0) * 1.0
-    # np.savetxt('result/adjacency_matrix.csv', exist, delimiter=',', fmt='%d')
 
     # calculate the degree matrix
     factor = np.ones(adj_m.shape[1])
     res = np.dot(exist, factor)  # degree of each node
     diag_matrix = np.diag(res)  # degree matrix
-    # np.savetxt('result/diag.csv', diag_matrix, delimiter=',', fmt='%d')
 
     # calculate the laplace matrix
     d_inv = np.linalg.inv(diag_matrix)
     adj_hat = d_inv.dot(exist)
-
     return adj_hat, fea_df, label_df
 
 

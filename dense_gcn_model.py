@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2024/5/4 19:07
 # @Author  : Li Yu
-# @File    : DenseGCN_model.py
+# @File    : dense_gcn_model.py
 from torch import nn
 import torch.nn.functional as F
-from Layer import GraphConvolution
+from layer import GraphConvolution
 
 
 class DEGCN(nn.Module):

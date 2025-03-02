@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2024/5/4 19:07
 # @Author  : Li Yu
-# @File    : DenseGCN_model.py
+# @File    : dense_gcn_model.py
 import numpy as np
 import pandas as pd
 import argparse
@@ -11,7 +11,7 @@ from sklearn.model_selection import StratifiedKFold
 from sklearn.metrics import f1_score, precision_score, recall_score
 import torch
 import torch.nn.functional as F
-from DenseGCN_model import DEGCN
+from dense_gcn_model import DEGCN
 from utils import load_data
 from utils import accuracy
 import matplotlib.pyplot as plt
