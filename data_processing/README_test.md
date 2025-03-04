@@ -8,12 +8,12 @@ This repository provides R scripts for processing and integrating multi-omics da
 ## Script Overview
 
 ### **1. Subtype-Specific Processing**
-| Script       | Functionality                                                                                     | Output File                         |
-|--------------|---------------------------------------------------------------------------------------------------|-------------------------------------|
-| `KICH.R`     | Processes omics data for Kidney Chromophobe (KICH)                                                | `KICH.Rdata`                        |
-| `KIRC.R`     | Processes omics data for Kidney Renal Clear Cell Carcinoma (KIRC)                                 | `KIRC.Rdata`                        |
-| `KIRP.R`     | Processes omics data for Kidney Renal Papillary Cell Carcinoma (KIRP)                             | `KIRP.Rdata`                        |
-| `combined.R` | Multiple omics data (FPKM, Gistic, RPPA) of three renal cancer subtypes were merged and processed | `fpkm.csv` ,`gistic.csv`,`rppa.csv` |
+| Script       | Functionality                                                                                     | Output File                                           |
+|--------------|---------------------------------------------------------------------------------------------------|-------------------------------------------------------|
+| `KICH.R`     | Processes omics data for Kidney Chromophobe (KICH)                                                | `KICH.Rdata`                                          |
+| `KIRC.R`     | Processes omics data for Kidney Renal Clear Cell Carcinoma (KIRC)                                 | `KIRC.Rdata`                                          |
+| `KIRP.R`     | Processes omics data for Kidney Renal Papillary Cell Carcinoma (KIRP)                             | `KIRP.Rdata`                                          |
+| `combined.R` | Multiple omics data (FPKM, Gistic, RPPA) of three renal cancer subtypes were merged and processed | `fpkm.csv` `gistic.csv` `rppa.csv` `sample_class.csv` |
 
 **Shared Workflow**:
 1. **Data Loading**: Reads RPPA, GISTIC, and FPKM files.
