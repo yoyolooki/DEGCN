@@ -40,7 +40,7 @@ pip install -r requirements.txt
 
 You can either preprocess your own data using the provided R scripts or download the preprocessed datasets directly.
 
-- Run the R script as described in `./data_processing/readme.md` to process raw data.
+- Run the R script as described in `./data_processing/README.md` to process raw data.
 - Alternatively, download preprocessed data from https://figshare.com/articles/thesis/DEGCN-data/28517558.
 
 ---
