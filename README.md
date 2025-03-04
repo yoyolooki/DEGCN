@@ -15,16 +15,16 @@ $ conda activate DEGCN
 $ pip install -r requirements.txt
 ```
 ###  Step 2 Running
-The whole workflow is divided into three steps: <br>
-* Use VAE to reduce the dimensionality of multi-omics data to obtain multi-omics feature matrix
+## The whole workflow is divided into three steps: <br>
+1.Use VAE to reduce the dimensionality of multi-omics data to obtain multi-omics feature matrix
 ```Python
 python VAE_run.py -p1 data/KCdata/fpkm.csv -p2 data/KCdata/gistic.csv -p3 data/KCdata/rppa.csv -s 0 -d gpu -e 100 -m 0 -bs 16
 ```
-* Use SNF to construct patient similarity network <br>
+2.Use SNF to construct patient similarity network <br>
 ```Python
 python SNF.py -p KCdata/fpkm.csv KCdata/gistic.csv KCdata/rppa.csv -m sqeuclidean
 ```
-* Input multi-omics feature matrix  and the patient similarity network to GCN <br>
+3.Input multi-omics feature matrix  and the patient similarity network to GCN <br>
 ```Python
 python DenseGCN_run.py -fd result/latent_data.csv -ad result/SNF_fused_matrix.csv -ld data/KCdata/sample_classes.csv -ts KCdata/test_sample.csv -m 0 -d gpu -p 20
 ```
