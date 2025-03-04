@@ -15,7 +15,7 @@ $ conda activate DEGCN
 $ pip install -r requirements.txt
 ```
 ###  Step 2 Running
-## The whole workflow is divided into three steps: <br>
+The whole workflow is divided into three steps: <br>
 1.Use VAE to reduce the dimensionality of multi-omics data to obtain multi-omics feature matrix
 ```Python
 python VAE_run.py -p1 data/KCdata/fpkm.csv -p2 data/KCdata/gistic.csv -p3 data/KCdata/rppa.csv -s 0 -d gpu -e 100 -m 0 -bs 16
