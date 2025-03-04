@@ -90,4 +90,4 @@ If you find DEGCN useful for your research, please consider citing our work:
 ---
 
 ## License
-MIT License
+📜 **MIT License** © 2025 [Yu Li]
