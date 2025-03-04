@@ -34,9 +34,7 @@ install.packages(c("data.table", "dplyr", "tidyverse"))
 ```
 
 ### **2. Data Preparation**
-Download the dataset from Figshare:
-
-📥 **[Download from Figshare](https://figshare.com/articles/thesis/DEGCN-data/28517558)**
+Download the dataset from Figshare: https://figshare.com/articles/thesis/DEGCN-data/28517558
 
 Ensure the raw data files are named correctly within their respective subtype folders:
 
