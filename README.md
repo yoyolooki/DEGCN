@@ -1,22 +1,28 @@
 # DEGCN
 
 ## Overview
-**DEGCN** (Dense Enhanced Graph Convolutional Network) is a deep learning framework designed for multi-omics data integration and kidney cancer subtype classification.
+
+**DEGCN** (Dense Enhanced Graph Convolutional Network) is a deep learning framework designed for multi-omics data
+integration and kidney cancer subtype classification.
 
 ![Model Overview](https://github.com/yoyolooki/DEGCN/blob/main/data/Figs1.png)
 
-As shown in the figure, DEGCN takes multi-omics expression matrices as input, including but not limited to genomics, transcriptomics, and proteomics. The model leverages Graph Convolutional Networks (GCNs) and integrates two unsupervised multi-omics fusion algorithms:
+As shown in the figure, DEGCN takes multi-omics expression matrices as input, including but not limited to genomics,
+transcriptomics, and proteomics. The model leverages Graph Convolutional Networks (GCNs) and integrates two unsupervised
+multi-omics fusion algorithms:
 
 - **Variational Autoencoder (VAE)**: Reduces the dimensionality of multi-omics expression data.
 - **Similarity Network Fusion (SNF)**: Constructs a patient similarity network based on multi-omics profiles.
 
-Feature extraction is not required before VAE and SNF, making DEGCN an efficient and streamlined pipeline for multi-omics data analysis.
+Feature extraction is not required before VAE and SNF, making DEGCN an efficient and streamlined pipeline for
+multi-omics data analysis.
 
 ---
 
 ## Installation
 
 ### Step 1: Set Up Environment
+
 First, create a new Conda environment and install the required dependencies:
 
 ```bash
@@ -52,6 +58,7 @@ You can either preprocess your own data using the provided R scripts or download
 The DEGCN workflow consists of three main steps:
 
 #### 1. Dimensionality Reduction using VAE
+
 Reduce the dimensionality of multi-omics data using a Variational Autoencoder (VAE):
 
 ```bash
@@ -59,6 +66,7 @@ python VAE_run.py -p1 data/KCdata/fpkm.csv -p2 data/KCdata/gistic.csv -p3 data/K
 ```
 
 #### 2. Construct Patient Similarity Network using SNF
+
 Build a patient similarity network using SNF:
 
 ```bash
@@ -66,6 +74,7 @@ python SNF.py -p KCdata/fpkm.csv KCdata/gistic.csv KCdata/rppa.csv -m sqeuclidea
 ```
 
 #### 3. Train the Dense GCN Model
+
 Use the learned multi-omics feature matrix and patient similarity network to train the Dense GCN model:
 
 ```bash
@@ -75,6 +84,7 @@ python DenseGCN_run.py -fd result/latent_data.csv -ad result/SNF_fused_matrix.cs
 ---
 
 ## Contact
+
 For any questions or support, please contact:
 
 **Yu Li**  
@@ -83,6 +93,7 @@ For any questions or support, please contact:
 ---
 
 ## Citation
+
 If you find DEGCN useful for your research, please consider citing our work:
 
 *(Citation details to be added)*
@@ -90,4 +101,5 @@ If you find DEGCN useful for your research, please consider citing our work:
 ---
 
 ## License
+
 📜 **MIT License** © 2025 [Yu Li]

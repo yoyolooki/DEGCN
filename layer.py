@@ -1,15 +1,12 @@
-# -*- coding: utf-8 -*-
-# @Time    : 2024/5/4 19:07
-# @Author  : Li Yu
-# @File    : layer.py
 import torch
 import math
 from torch import nn
 from torch.nn.parameter import Parameter
 
+
 class GraphConvolution(nn.Module):
     def __init__(self, infeas, outfeas, bias=True):
-        super(GraphConvolution,self).__init__()
+        super(GraphConvolution, self).__init__()
         self.in_features = infeas
         self.out_features = outfeas
         self.weight = Parameter(torch.FloatTensor(infeas, outfeas))
@@ -24,7 +21,7 @@ class GraphConvolution(nn.Module):
         stdv = 1. / math.sqrt(self.weight.size(1))
         self.weight.data.uniform_(-stdv, stdv)
         if self.bias is not None:
-            self.bias.data.uniform_(-stdv,stdv)
+            self.bias.data.uniform_(-stdv, stdv)
         '''
         for name, param in GraphConvolution.named_parameters(self):
             if 'weight' in name:

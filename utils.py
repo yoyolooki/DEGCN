@@ -1,7 +1,3 @@
-# -*- coding: utf-8 -*-
-# @Time    : 2024/5/4 19:07
-# @Author  : Li Yu
-# @File    : dense_gcn_model.py
 import pandas as pd
 import numpy as np
 
