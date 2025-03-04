@@ -43,9 +43,10 @@ Ensure the raw data files are named correctly within their respective subtype fo
 ```
 ├── data/
 │   ├── KICH/
-│   │   ├── RPPA.csv
-│   │   ├── GISTIC.csv
-│   │   ├── FPKM.csv
+│   │   ├── gencode.v22.annotation.gene.probeMap
+│   │   ├── KICH-RPPA
+│   │   ├── TCGA-KICH.gistic.tsv
+│   │   ├── TCGA-KICH.htseq_fpkm.tsv
 │   ├── KIRC/
 │   ├── KIRP/
 ```
