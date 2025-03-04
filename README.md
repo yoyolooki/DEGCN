@@ -14,7 +14,10 @@ $ conda activate DEGCN
 # install requirements
 $ pip install -r requirements.txt
 ```
-###  Step 2 Running
+###  Step 2 data preparing
+Run the R script to process the data as described in ./data_processing/readme.md, or download the processed data directly from https://github.com/
+
+###  Step 3 Running
 The whole workflow is divided into three steps: <br>
 1.Use VAE to reduce the dimensionality of multi-omics data to obtain multi-omics feature matrix
 ```Python
