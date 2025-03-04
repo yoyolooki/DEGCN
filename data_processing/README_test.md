@@ -3,30 +3,17 @@
 This repository provides R scripts for processing and integrating multi-omics data (RPPA, GISTIC, FPKM) across three renal cancer subtypes:  
 **KICH** (Kidney Chromophobe), **KIRC** (Kidney Renal Clear Cell Carcinoma), and **KIRP** (Kidney Renal Papillary Cell Carcinoma).
 
----
-
-## 📂 Repository Structure
-.
-├── data/ # Raw data (excluded via .gitignore)
-├── scripts/
-│ ├── KICH.R # Processes KICH subtype data
-│ ├── KIRC.R # Processes KIRC subtype data
-│ ├── KIRP.R # Processes KIRP subtype data
-│ └── combined.R # Cross-subtype integration
-├── output/ # Processed data files (e.g., .Rdata)
-└── README.md
 
 
----
-
-## 🧩 Script Overview
+## Script Overview
 
 ### **1. Subtype-Specific Processing**
-| Script      | Functionality                                                                 | Output File     |
-|-------------|-------------------------------------------------------------------------------|-----------------|
-| `KICH.R`    | Processes omics data for Kidney Chromophobe (KICH)                            | `KICH.Rdata`    |
-| `KIRC.R`    | Processes omics data for Kidney Renal Clear Cell Carcinoma (KIRC)             | `KIRC.Rdata`    |
-| `KIRP.R`    | Processes omics data for Kidney Renal Papillary Cell Carcinoma (KIRP)         | `KIRP.Rdata`    |
+| Script       | Functionality                                                                                     | Output File                         |
+|--------------|---------------------------------------------------------------------------------------------------|-------------------------------------|
+| `KICH.R`     | Processes omics data for Kidney Chromophobe (KICH)                                                | `KICH.Rdata`                        |
+| `KIRC.R`     | Processes omics data for Kidney Renal Clear Cell Carcinoma (KIRC)                                 | `KIRC.Rdata`                        |
+| `KIRP.R`     | Processes omics data for Kidney Renal Papillary Cell Carcinoma (KIRP)                             | `KIRP.Rdata`                        |
+| `combined.R` | Multiple omics data (FPKM, Gistic, RPPA) of three renal cancer subtypes were merged and processed | `fpkm.csv` ,`gistic.csv`,`rppa.csv` |
 
 **Shared Workflow**:
 1. **Data Loading**: Reads RPPA, GISTIC, and FPKM files.
@@ -38,14 +25,21 @@ This repository provides R scripts for processing and integrating multi-omics da
 5. **Output**: Saves processed data as `.Rdata`.
 
 ### **2. Data Integration (`combined.R`)**
-- **Input**: Subtype-specific `.Rdata` files from `output/`.
-- **Functionality**:
-  - Merges processed data across subtypes.
-  - Saves integrated dataset to `combined.Rdata`.
+- **Input**: Processed `.Rdata` files from subtype scripts (`KICH.Rdata`, `KIRC.Rdata`, `KIRP.Rdata`)
+- **Key Operations**:
+  1. **Data Merging**:
+     - Transposes omics matrices to sample × feature format
+     - Identifies common RPPA proteins across subtypes
+  2. **Data Cleaning**:
+     - Imputes missing RPPA values with feature means
+     - Removes duplicate samples (FPKM only)
+  3. **Label Generation**:
+     - Creates unified sample labels (0=KICH, 1=KIRC, 2=KIRP)
+- **Outputs**:
+  - `combined.Rdata`: Integrated dataset (FPKM/GISTIC/RPPA)
+  - CSV files: `fpkm.csv`, `gistic.csv`, `rppa.csv`, `sample_class.csv`
 
----
-
-## ⚙️ Installation
+## Installation
 
 ### **Dependencies**
 Install required R packages:
@@ -56,16 +50,6 @@ install.packages(c("data.table", "dplyr", "tidyverse"))
 Data Preparation
 Download data from Figshare:
 🔗 DEGCN Data Repository
-
-Place unzipped files in data/ with the following structure:
-
-data/
-├── KICH/
-│   ├── RPPA.csv
-│   ├── GISTIC.csv
-│   └── FPKM.csv
-├── KIRC/
-└── KIRP/
 
 🚀 Usage
 Run a Single Subtype Script
@@ -95,25 +79,14 @@ combined.Rdata	Integrated multi-subtype dataset	Matrix (Samples × Features)
 
 
 📝 Notes
-Ensure the output/ directory exists before running scripts.
 
 Raw data files must follow the naming convention: RPPA.csv, GISTIC.csv, FPKM.csv within each subtype folder.
 
 For reproducibility, use R version ≥4.0.
 
 📜 License
-MIT License © 2024 [Your Name]
+MIT License © 2025 [YU LI]
 
 
 ---
 
-### **Key Improvements**
-1. **Structured Hierarchy**: Clear sections for installation, usage, and outputs.
-2. **Standardized Format**:
-   - Tables for script/output descriptions.
-   - Code blocks for commands.
-   - File structure visualization.
-3. **Actionable Instructions**: Direct download links and `wget` examples.
-4. **Clarity**: Explicit naming conventions and version requirements.
-
-Let me know if you need further tweaks! 🛠️
