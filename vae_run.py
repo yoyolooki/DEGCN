@@ -71,7 +71,7 @@ def train_vae(model, epochs, criterion, optimizer, train_loader):
     plt.xlabel('epochs')
     plt.ylabel('loss')
     plt.title('VAE Training Loss')
-    plt.savefig('result/VAE_train_loss.png')
+    plt.savefig('result/vae_train_loss.png')
     plt.close()
 
 

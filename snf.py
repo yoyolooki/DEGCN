@@ -60,8 +60,8 @@ if __name__ == '__main__':
     fused_df.index = omics_data_1['Sample'].tolist()
 
     # fused_df.to_csv('result/SNF_fused_matrix_for_bcdata.csv', header=True, index=True)
-    #fused_df.to_csv('result/SNF_fused_matrix_gc.csv', header=True, index=True)
-    fused_df.to_csv('result/SNF_fused_matrix.csv', header=True, index=True)
+    #fused_df.to_csv('result/snf_fused_matrix_gc.csv', header=True, index=True)
+    fused_df.to_csv('result/snf_fused_matrix.csv', header=True, index=True)
 
     np.fill_diagonal(fused_df.values, 0)
     fig = sns.clustermap(fused_df.iloc[:, :], cmap='vlag', figsize=(8, 8), )

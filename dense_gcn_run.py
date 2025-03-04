@@ -104,7 +104,7 @@ def predict(features, adj, sample, idx):
     res_data = res_data.iloc[idx, :]
     # print(res_data)
 
-    res_data.to_csv('result/GCN_predicted_data.csv', header=True, index=False)
+    res_data.to_csv('result/gcn_predicted_data.csv', header=True, index=False)
 
 
 def plot_loss_curve(all_loss_values, smoothing_factor=0.9):
@@ -119,7 +119,7 @@ def plot_loss_curve(all_loss_values, smoothing_factor=0.9):
     plt.ylabel('Loss')
     plt.title('Training Loss Curve')
     plt.legend()
-    plt.savefig('result/GCN_train_loss.png')
+    plt.savefig('result/gcn_train_loss.png')
     plt.show()
 
 
