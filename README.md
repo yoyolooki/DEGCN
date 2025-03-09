@@ -62,7 +62,7 @@ The DEGCN workflow consists of three main steps:
 Reduce the dimensionality of multi-omics data using a Variational Autoencoder (VAE):
 
 ```bash
-python VAE_run.py -p1 data/KCdata/fpkm.csv -p2 data/KCdata/gistic.csv -p3 data/KCdata/rppa.csv -s 0 -d gpu -e 100 -m 0 -bs 16
+python vae_run.py -p1 data/KCdata/fpkm.csv -p2 data/KCdata/gistic.csv -p3 data/KCdata/rppa.csv -s 0 -d gpu -e 100 -m 0 -bs 16
 ```
 
 #### 2. Construct Patient Similarity Network using SNF
@@ -70,7 +70,7 @@ python VAE_run.py -p1 data/KCdata/fpkm.csv -p2 data/KCdata/gistic.csv -p3 data/K
 Build a patient similarity network using SNF:
 
 ```bash
-python SNF.py -p KCdata/fpkm.csv KCdata/gistic.csv KCdata/rppa.csv -m sqeuclidean
+python snf.py -p KCdata/fpkm.csv KCdata/gistic.csv KCdata/rppa.csv -m sqeuclidean
 ```
 
 #### 3. Train the Dense GCN Model
@@ -78,7 +78,7 @@ python SNF.py -p KCdata/fpkm.csv KCdata/gistic.csv KCdata/rppa.csv -m sqeuclidea
 Use the learned multi-omics feature matrix and patient similarity network to train the Dense GCN model:
 
 ```bash
-python DenseGCN_run.py -fd result/latent_data.csv -ad result/SNF_fused_matrix.csv -ld data/KCdata/sample_classes.csv -ts KCdata/test_sample.csv -m 0 -d gpu -p 20
+python dense_gcn_run.py -fd result/latent_data.csv -ad result/SNF_fused_matrix.csv -ld data/KCdata/sample_classes.csv -ts KCdata/test_sample.csv -m 0 -d gpu -p 20
 ```
 
 ---
