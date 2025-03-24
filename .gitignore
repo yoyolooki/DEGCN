@@ -1,3 +1,5 @@
 /data/BCdata/
 /data/GCdata/
 /data/KCdata/
+__pycache__/
+.idea/
