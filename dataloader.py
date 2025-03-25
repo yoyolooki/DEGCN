@@ -27,16 +27,16 @@ class Omics_Data_VAE(Dataset):
         return self.length
 
 
-class Omics_Data_GCN(Dataset):
-    def __init__(self, path_laten_data):
-        laten_data = pd.read_csv(path_laten_data, sep=',', header=0, index_col=None)
-        laten_data = laten_data.iloc[:, 1:]  # 第0列是样本名
-
-        self.length = laten_data.shape[0]
-        self.laten_data = torch.tensor(laten_data.values, dtype=torch.float32)
-
-    def __getitem__(self, index):
-        return self.laten_data[index]
-
-    def __len__(self):
-        return self.length
+# class Omics_Data_GCN(Dataset):
+#     def __init__(self, path_laten_data):
+#         laten_data = pd.read_csv(path_laten_data, sep=',', header=0, index_col=None)
+#         laten_data = laten_data.iloc[:, 1:]
+#
+#         self.length = laten_data.shape[0]
+#         self.laten_data = torch.tensor(laten_data.values, dtype=torch.float32)
+#
+#     def __getitem__(self, index):
+#         return self.laten_data[index]
+#
+#     def __len__(self):
+#         return self.length
